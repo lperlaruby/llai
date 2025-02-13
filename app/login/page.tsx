@@ -120,10 +120,18 @@ export default function LoginPage() {
           )}
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
-          <Button variant="outline" className="w-full" onClick={() => router.push("/hello-world")}>
-            <Icons.google className="mr-2 h-4 w-4" />
-            {isSignUp ? "Sign up" : "Sign in"} with Google
-          </Button>
+        <Button variant="outline" className="w-full" onClick={() => {const googleAuthUrl = process.env.NEXT_PUBLIC_GOOGLE_AUTH_URL;
+          if (googleAuthUrl){
+            window.location.href = googleAuthUrl;
+          }
+          else{
+            console.error("Google Auth URL is not defined");
+          }
+        }}
+        >
+          <Icons.google className="mr-2 h-4 w-4" />
+          Sign in with Google
+        </Button>
           <Button variant="link" className="w-full" onClick={() => setIsSignUp(!isSignUp)}>
             {isSignUp ? "Already have an account? Sign in" : "Don't have an account? Sign up"}
           </Button>
