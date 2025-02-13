@@ -1,4 +1,4 @@
-import Link from "next/link"
+/*import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export default function HelloWorldPage() {
@@ -16,5 +16,21 @@ export default function HelloWorldPage() {
       </div>
     </div>
   )
+}*/
+
+import Link from "next/link";
+
+export default function HelloWorldPage() {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-6xl font-bold">
+        <Link href="/hello" className="text-blue-600 hover:text-blue-400 mx-2">Hello</Link>
+        <span>, </span>
+        <Link href="/world" className="text-blue-600 hover:text-blue-400 mx-2">World</Link>
+      </h1>
+    </div>
+
+  
+  );
 }
 
