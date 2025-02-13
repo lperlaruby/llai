@@ -1,3 +1,4 @@
+//h
 export default function WorldPage() {
     return (
       <div className="flex items-center justify-center min-h-screen bg-green-100">
