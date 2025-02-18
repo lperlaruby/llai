@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -120,15 +121,7 @@ export default function LoginPage() {
           )}
         </CardContent>
         <CardFooter className="flex flex-col space-y-4">
-        <Button variant="outline" className="w-full" onClick={() => {const googleAuthUrl = process.env.NEXT_PUBLIC_GOOGLE_AUTH_URL;
-          if (googleAuthUrl){
-            window.location.href = googleAuthUrl;
-          }
-          else{
-            console.error("Google Auth URL is not defined");
-          }
-        }}
-        >
+        <Button variant="outline" className="w-full" onClick={() => signIn("google")}>
           <Icons.google className="mr-2 h-4 w-4" />
           Sign in with Google
         </Button>
